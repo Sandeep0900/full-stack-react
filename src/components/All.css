@@ -1,0 +1,195 @@
+/* App.css */
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f5f7fb;
+  }
+  
+  .app-container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+  }
+  
+  .row {
+    display: flex;
+    gap: 20px;
+    flex: 1;
+  }
+
+  /* Sidebar.css */
+/* Sidebar.css */
+
+.sidebar {
+    width: 260px;
+    height: 100vh; /* Full viewport height */
+    background-color: #f4f7fa;
+    border-right: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 15px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+    overflow-y: auto; /* Enable vertical scrolling */
+  }
+  
+  .sidebar-header {
+    margin-bottom: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #4a90e2;
+  }
+  
+  .sidebar-photo {
+    margin-bottom: 25px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .sidebar-search {
+    margin-bottom: 25px;
+    margin-right: 25px;
+    width: 81%;
+  }
+  
+  .sidebar-nav {
+    flex-grow: 1;
+    width: 100%;
+    overflow-y: auto; /* Optional: Scroll within the nav section if needed */
+  }
+
+  /* Photo.css   */
+  .photo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #d1eaff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 2px solid #a4c4ff;
+  }
+  
+  .uploaded-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .upload-button {
+    font-size: 14px;
+    padding: 6px 12px;
+    background-color: #a4c4ff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.3s ease;
+  }
+  
+  .upload-button:hover {
+    background-color: #7aa6ff;
+  }
+  
+  /* SearchBar.css */
+
+.search-container {
+    position: relative;
+    width: 100%;
+  }
+  
+  .search-icon {
+    position: absolute;
+    left: 8px; /* Reduced spacing */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px; /* Slightly larger icon for visibility */
+    color: #4a90e2; /* Matches NavBar icon color */
+    pointer-events: none; /* Prevent interaction with the icon */
+  }
+  
+  .search-bar {
+    width: 100%;
+    padding: 6px 10px 6px 30px; /* Compact padding */
+    border: 1px solid #ccc;
+    border-radius: 8px; /* Matches NavBar's rounded corners */
+    outline: none;
+    background-color: #f9f9f9; /* Matches NavBar background */
+    font-size: 12px; /* Smaller font size */
+    color: #333;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .search-bar:focus {
+    border-color: #4a90e2; /* Highlight on focus */
+    box-shadow: 0 0 6px rgba(74, 144, 226, 0.2); /* Subtle glow effect */
+  }
+/* NavBar.css */
+
+.nav-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 10px;
+    background-color: #e8f0fe;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    align-items: flex-start;
+    height: 100%;
+  }
+  
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    color: #333;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .nav-item:hover {
+    background-color: #cde3ff;
+  }
+  
+  .nav-icon {
+    font-size: 18px;
+    color: #4a90e2;
+  }
+  
+  /* Component.css */
+  .box {
+    flex: 1;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    color: #333;
+  }
+  
