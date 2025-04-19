@@ -1,12 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FaHome, FaTachometerAlt, FaCog, FaUser, FaBell, FaEnvelope, FaSignOutAlt } from 'react-icons/fa';
-// import SearchBar from './SearchBar';// Import SearchBar
 import './All.css';
 
 const NavBar = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="nav-bar">
-      <div className="nav-item">
+      <div className="nav-item" onClick={() => navigate('/')}>
         <FaHome className="nav-icon" />
         <span>Home</span>
       </div>
@@ -26,9 +28,9 @@ const NavBar = () => {
         <FaBell className="nav-icon" />
         <span>Notifications</span>
       </div>
-      <div className="nav-item">
+      <div className="nav-item" onClick={() => navigate('/login')}>
         <FaCog className="nav-icon" />
-        <span>Settings</span>
+        <span>Login</span>
       </div>
       <div className="nav-item">
         <FaSignOutAlt className="nav-icon" />
