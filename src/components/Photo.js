@@ -1,29 +1,46 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './All.css';
+import { auth, db } from '../firebase';
+import { ref, onValue } from 'firebase/database';
 
 const Photo = () => {
   const [image, setImage] = useState(null);
+  const [email, setEmail] = useState(null);
 
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      setImage(URL.createObjectURL(file));
-    }
-  };
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        setEmail(user.email);
+        const uid = user.uid;
+        const photoRef = ref(db, `users/${uid}/photo`);
+
+        onValue(photoRef, (snapshot) => {
+          const base64Image = snapshot.val();
+          if (base64Image) {
+            setImage(base64Image);
+          }
+        });
+      } else {
+        setImage(null);
+        setEmail(null);
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  if (!email) return null; // Not logged in, don’t show anything
 
   return (
     <div className="photo-container">
       <div className="photo">
         {image ? (
-          <img src={image} alt="Uploaded" className="uploaded-image" />
+          <img src={image} alt="User" className="uploaded-image" />
         ) : (
           <span>Photo</span>
         )}
       </div>
-      <label className="upload-button">
-        Upload Photo
-        <input type="file" accept="image/*" onChange={handleImageChange} hidden />
-      </label>
+      <div className="user-email">{email}</div>
     </div>
   );
 };

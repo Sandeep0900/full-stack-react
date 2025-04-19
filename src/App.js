@@ -6,6 +6,7 @@ import Component2 from './components/Component2';
 import Component3 from './components/Component3';
 import Component4 from './components/Component4';
 import Login from './components/Login'; // Make sure it's capitalized!
+import Signup from './components/Signup';
 import './App.css';
 
 const App = () => {
@@ -30,6 +31,7 @@ const App = () => {
             }
           />
           <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
         </Routes>
       </div>
     </div>
