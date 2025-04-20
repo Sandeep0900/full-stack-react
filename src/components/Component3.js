@@ -1,10 +1,29 @@
 import React from 'react';
 import './All.css';
 
-const Component1 = () => {
+const Component3 = ({ linkedInData, loading }) => {
   return (
-    <div className="box">Component 1</div>
+    <div className="box">
+      <h3>LinkedIn Data</h3>
+      {loading ? (
+        <div className="loader">Loading...</div>
+      ) : linkedInData ? (
+        <div className="profile-container">
+          <img src={linkedInData.profilePicture || "https://via.placeholder.com/150"} alt="Profile" className="profile-image" />
+
+          <div className="profile-info">
+            <h4>{linkedInData.username}</h4>
+            <p>{linkedInData.headline}</p>
+            <p><strong>Location:</strong> {linkedInData.geo.city}</p>
+            <p><strong>Followers:</strong> {linkedInData.geo.countryCode}</p>
+          </div>
+          <img src={linkedInData.backgroundImage.url || "https://via.placeholder.com/150"} alt="Profile" className="profile-image" />
+        </div>
+      ) : (
+        <p>No data fetched yet.</p>
+      )}
+    </div>
   );
 };
 
-export default Component1;
+export default Component3;
