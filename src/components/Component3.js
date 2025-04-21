@@ -15,7 +15,7 @@ const Component3 = ({ linkedInData, loading }) => {
             <h4>{linkedInData.username}</h4>
             <p>{linkedInData.headline}</p>
             <p><strong>Location:</strong> {linkedInData.geo.city}</p>
-            <p><strong>Followers:</strong> {linkedInData.geo.countryCode}</p>
+            <p><strong>Country Code:</strong> {linkedInData.geo.countryCode}</p>
           </div>
           <img src={linkedInData.backgroundImage.url || "https://via.placeholder.com/150"} alt="Profile" className="profile-image" />
         </div>

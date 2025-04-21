@@ -44,13 +44,14 @@ const Component1 = ({ setLinkedInData, setGitHubData, setLoading }) => {
             },
           }
         );
-        console.log('GitHub Response:', response.data); 
-        setGitHubData(response.data);
+        console.log('GitHub Response:', response.data);
+        setGitHubData(response.data.data); // ✅ No JSON.parse
       } catch (error) {
         console.error('GitHub API error:', error);
         alert('Failed to fetch GitHub data. Check console.');
       }
     }
+    
 
     setLoading(false); // ✅ End loading
   };

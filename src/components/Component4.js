@@ -2,7 +2,7 @@ import React from 'react';
 import './All.css';
 
 const Component4 = ({ gitHubData, loading }) => {
-  const user = gitHubData?.data?.[0]; // GitHub data is nested
+  const user = gitHubData?.data ?? gitHubData; // ✅ Now correctly accessing the object
 
   return (
     <div className="box">
@@ -11,13 +11,25 @@ const Component4 = ({ gitHubData, loading }) => {
         <div className="loader">Loading...</div>
       ) : user ? (
         <div>
-      <h2>GitHub Profile</h2>
-      <p><strong>Name:</strong> {gitHubData.name}</p>
-      <p><strong>Username:</strong> {gitHubData.username}</p>
-      <p><strong>Followers:</strong> {gitHubData.followers}</p>
-      <p><strong>Bio:</strong> {gitHubData.bio}</p>
-      <a href={gitHubData.user} target="_blank" rel="noreferrer">GitHub Profile</a>
-    </div>
+          <h2>GitHub Profile</h2>
+          {user.avatar_url && (
+            <img
+              src={user.avatar_url}
+              alt={`${user.username}'s avatar`}
+              style={{
+                width: '120px',
+                height: '120px',
+                borderRadius: '50%',
+                marginBottom: '10px',
+              }}
+            />
+          )}
+          <p><strong>Name:</strong> {user.name}</p>
+          <p><strong>Username:</strong> {user.username}</p>
+          <p><strong>Followers:</strong> {user.followers}</p>
+          <p><strong>Bio:</strong> {user.bio}</p>
+          <a href={user.user} target="_blank" rel="noreferrer">GitHub Profile</a>
+        </div>
       ) : (
         <p>No data fetched yet.</p>
       )}
